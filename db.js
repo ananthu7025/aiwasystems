@@ -1,21 +1,18 @@
-const mysql = require('mysql2');
+const mysql = require('mysql2')
 
-const dbConfig = {
-  host: 'localhost',
-  user: 'root',
-  password: 'root',
-  database: 'aiwasystems'
-};
-
-const db = mysql.createConnection(dbConfig);
-
-db.connect((err) => {
-  if (err) throw err;
-  console.log('Connected to MySQL database');
+const pool = mysql.createPool({
+    host: "localhost", 
+    user: "root", 
+    password: "root",
+    database: "aiwasystems",
+    waitForConnections: true,
+    connectionLimit: 10,
+    queueLimit: 0
 });
 
-module.exports = {
-  db,
-  dbConfig,
-  port: 4000
-};
+pool.getConnection((err, conn) => {
+    if(err) console.log(err)
+    console.log("Connected successfully")
+})
+
+module.exports = pool.promise()
