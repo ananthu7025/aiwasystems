@@ -1,3 +1,4 @@
+//products.js
 const express = require('express');
 const db = require('./db'); // Import the database connection
 const router = express.Router();
@@ -46,10 +47,10 @@ router.get('/:productId', (req, res) => {
 
 router.put('/:productId', (req, res) => {
   const productId = req.params.productId;
-  const { name, description, price, subCategoryId, imageUrl, CATCODE } = req.body;
+  const { name, description, price, sub_category_id, imageUrl, CATCODE } = req.body;
   const sql = 'UPDATE products SET name = ?, description = ?, price = ?, sub_category_id = ?, image_url = ?, CATCODE = ? WHERE id = ?';
   
-  db.query(sql, [name, description, price, subCategoryId, imageUrl, CATCODE, productId], (err, result) => {
+  db.query(sql, [name, description, price, sub_category_id, imageUrl, CATCODE, productId], (err, result) => {
     if (err) {
       console.error(err);
       return res.status(500).json({ error: 'Internal Server Error' });

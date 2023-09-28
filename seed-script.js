@@ -66,22 +66,9 @@ function seedScript(connection) {
     { name: 'Solar Inverter 5KW', description: '5KW grid-tie solar inverter', price: 1599.99, sub_category_id: 69, image_url: 'solar_inverter_5kw.jpg', CATCODE: 'SI001B' },
     // Add more products as needed
   ];
-  // connection.query('INSERT INTO main_categories (name) VALUES ?', [mainCategoriesData.map(item => [item.name])], (err, results) => {
-  //   if (err) throw err;
-  //   console.log('Main categories inserted:', results.affectedRows);
-  // });
 
-
-  // // Insert subcategories
-  // connection.query('INSERT INTO sub_categories (name, main_category_id, description, image, catcode) VALUES ?', [subCategoriesData.map(item => [item.name, item.main_category_id, item.description, item.image, item.catcode])], (err, results) => {
-  //   if (err) throw err;
-  //   console.log('Subcategories inserted:', results.affectedRows);
-  // });
-
-  // Insert products
   connection.query('INSERT INTO products (name, description, price, sub_category_id, image_url, CATCODE) VALUES ?', [productsData.map(item => [item.name, item.description, item.price, item.sub_category_id, item.image_url, item.CATCODE])], (err, results) => {
     if (err) throw err;
-    console.log('Products inserted:', results.affectedRows);
   });
 }
 

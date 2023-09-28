@@ -1,10 +1,11 @@
+//config.js
 module.exports = {
     dbConfig: {
-      host: 'localhost',
-      user: 'root',
-      password: 'root',
-      database: 'aiwasystems'
+      host: 'b6snploglbrhgth4mbc8-mysql.services.clever-cloud.com',
+      user: 'ux1ig8nxtrncaa3t',
+      password: 'ux1ig8nxtrncaa3t',
+      database: 'b6snploglbrhgth4mbc8'
     },
-    port: 4000
+    port: 3306
   };
   
