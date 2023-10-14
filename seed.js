@@ -1,12 +1,8 @@
 const mysql = require('mysql2');
+const config = require('./config.js')
 
 // Create a MySQL connection pool
-const pool = mysql.createPool({
-    host: 'localhost',
-    user: 'root',
-    password: 'root',
-    database: 'aiwa'
-});
+const pool = mysql.createPool(config.dbConfig);
 
 // Function to execute SQL queries
 function executeQuery(query, values = []) {
@@ -81,7 +77,7 @@ const insertDataSQLStatements = [
     `INSERT INTO main_categories (name) VALUES ('Power Quality Analyzers');`,
     `INSERT INTO main_categories (name) VALUES ('Voltage Stabilizers');`,
     `INSERT INTO main_categories (name) VALUES ('Solar Inverters');`,
-    
+
     // Insert statements for sub_categories
     `INSERT INTO sub_categories (name, main_category_id, description, image, catcode) VALUES ('DC Energy Meters', 1, 'Measuring DC energy consumption', 'dc_energy_meter.jpg', 'EM001');`,
     `INSERT INTO sub_categories (name, main_category_id, description, image, catcode) VALUES ('AC Energy Meters', 1, 'Measuring AC energy consumption', 'ac_energy_meter.jpg', 'EM002');`,
@@ -97,7 +93,7 @@ const insertDataSQLStatements = [
     `INSERT INTO products (name, description, price, sub_category_id, image_url, CATCODE) VALUES ('Voltage Analyzer Plus', 'Advanced voltage analyzer', 499.99, 4, 'voltage_analyzer_plus.jpg', 'PA002B');`,
     `INSERT INTO products (name, description, price, sub_category_id, image_url, CATCODE) VALUES ('Stabilizer Model S1', 'Single-phase voltage stabilizer', 199.99, 5, 'stabilizer_s1.jpg', 'VS001S');`,
     `INSERT INTO products (name, description, price, sub_category_id, image_url, CATCODE) VALUES ('Solar Inverter 5KW', '5KW grid-tie solar inverter', 1599.99, 6, 'solar_inverter_5kw.jpg', 'SI001B');`,
-    
+
     // Add more individual INSERT statements for other tables as needed
 ];
 
