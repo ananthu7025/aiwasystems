@@ -21,10 +21,10 @@ app.use(cors());
 app.use(express.json({limit: '25mb'}));
 app.use(express.urlencoded({limit: '25mb', extended: true}));
 
-app.use('/main_categories', mainCategoriesRoutes);
-app.use('/sub_categories', subCategoriesRoutes);
-app.use('/products', productsRoutes);
-app.use('/cart', cartRoutes);
+app.use('api/main_categories', mainCategoriesRoutes);
+app.use('api/sub_categories', subCategoriesRoutes);
+app.use('api/products', productsRoutes);
+app.use('api/cart', cartRoutes);
 const port =4000
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
