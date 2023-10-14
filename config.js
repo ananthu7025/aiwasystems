@@ -1,7 +1,7 @@
 //config.js
 module.exports = {
     dbConfig: {
-      host: 'http://localhost',
+      host: 'localhost',
       user: 'root',
       password: 'root',
       database: 'aiwa'
